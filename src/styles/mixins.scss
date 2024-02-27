@@ -1,0 +1,13 @@
+.btn {
+	@apply px-9 py-5 border-solid border border-gray-400 bg-gray-100 rounded
+		text-gray-600;
+
+	line-height: 1.13;
+	font-size: 1.2rem;
+	font-weight: 700;
+	text-align: center;
+}
+
+.btn--danger {
+	@apply border-red-600 bg-red-500 text-white;
+}
