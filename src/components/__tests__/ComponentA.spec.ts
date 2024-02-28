@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { v4 as uuidv4 } from 'uuid'
-
 import { mount } from '@vue/test-utils'
+
+import { type EnrichedComponent } from '@/components/__tests__/types'
 import ComponentA from '@/components/ComponentA.ce.vue'
 import { useLanguage } from '@/store/language/index'
 
@@ -19,7 +20,8 @@ describe('ComponentA', () => {
 			props: { stateId: uuidv4() }
 		})
 
-		expect(wrapper.vm.counter).toBe(0)
+		const component = wrapper.vm as unknown as EnrichedComponent
+		expect(component.counter).toBe(0)
 	})
 
 	it('increases counter having clicked on plus button', () => {
@@ -29,7 +31,8 @@ describe('ComponentA', () => {
 
 		const buttonPlus = wrapper.find('button')
 		buttonPlus.trigger('click')
-		expect(wrapper.vm.counter).toBe(1)
+		const component = wrapper.vm as unknown as EnrichedComponent
+		expect(component.counter).toBe(1)
 	})
 
 	it('decreases counter having clicked on minus button', async () => {
@@ -39,8 +42,8 @@ describe('ComponentA', () => {
 
 		const buttonMinus = wrapper.findAll('button')[1]
 		await buttonMinus.trigger('click')
-		////await Vue.nextTick()
-		expect(wrapper.vm.counter).toBe(-1)
+		const component = wrapper.vm as unknown as EnrichedComponent
+		expect(component.counter).toBe(-1)
 	})
 
 	it('shows buttons in French language having chosen language=French', async () => {

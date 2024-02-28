@@ -5,6 +5,7 @@ import { mount } from '@vue/test-utils'
 import ComponentB from '@/components/ComponentB.ce.vue'
 import { useLanguage } from '@/store/language/index'
 import { useStore } from '@/store/counter'
+import { type EnrichedComponent } from '@/components/__tests__/types'
 
 describe('ComponentB', () => {
 	it('renders properly', () => {
@@ -20,7 +21,8 @@ describe('ComponentB', () => {
 			props: { stateId: uuidv4() }
 		})
 
-		expect(wrapper.vm.counter).toBe(0)
+		const component = wrapper.vm as unknown as EnrichedComponent
+		expect(component.counter).toBe(0)
 	})
 
 	it('mounts with initial counter value = 99', () => {

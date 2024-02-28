@@ -66,6 +66,13 @@ app.use(isDiaboloLib) // initialize is-diabolo-li components
 app.mount('#app')
 ```
 3. `style.css` - tailwind css styles. Could be imported withing `is-diabolo-lib/style namespace`
+If you use scss make sure you have installed dart sass
+
+```sh
+npm install -D sass
+```
+
+Now you can import this css compiled styles inside your scss files
 ```scss
 @import url('is-diabolo-lib/style')
 ```
@@ -83,6 +90,13 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+### Use published library in your consumer project 
+1. Install library
+```sh
+npm install is-diabolo-lib
+```
+2. Use it either as Web component `import 'is-diabolo-lib/web-components'`  or as Vue Components `import isDiaboloLib from 'is-diabolo-lib/vue-plugin'`
 
 ### Try package locally in your consumer project
 1. Clone repository

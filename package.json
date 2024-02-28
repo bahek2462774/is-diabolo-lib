@@ -1,7 +1,6 @@
 {
   "name": "is-diabolo-lib",
   "version": "1.0.0-alpha.0",
-  "private": true,
   "type": "module",
   "main": "dist/main.cjs",
   "module": "./dist/main.js",
